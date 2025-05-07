@@ -1,0 +1,74 @@
+==89666== Verrou, Check floating-point rounding errors
+==89666== Copyright (C) 2014-2019, EDF (F. Fevotte & B. Lathuiliere). 2019-2023, EDF (B. Lathuiliere). 2020-2021, TriScale innov (F. Fevotte)
+==89666==  
+==89666== Using Valgrind-3.23.0.verrou-2.6.0 and LibVEX; rerun with -h for copyright info
+==89666== Command: /home/catC/de283294/projet_gradient/build/test_gradient
+==89666== 
+==89666== Handling new value --rounding-mode=native for option --rounding-mode=native
+==89666== Handling new value --float=no for option --float
+==89666== Handling new value --gen-exclude=/home/catC/de283294/projet_gradient/dd.line/ref/dd.sym.%p for option --gen-exclude
+==89666== Handling new value --gen-source=/home/catC/de283294/projet_gradient/dd.line/ref/dd.line.%p for option --gen-source
+==89666== Handling new value --mca-mode=ieee for option --mca-mode=ieee
+==89666== First seed : 534168
+==89666== Backend verrou : 1.x-dev
+==89666== Backend mcaquad : 1.x-dev
+==89666== Backend checkcancellation : 1.x-dev
+==89666== Backend check_float_max : 1.x-dev
+==89666== Backend checkdenorm : 1.x-dev
+==89666== Instrumented operations :
+==89666== 	add : yes
+==89666== 	sub : yes
+==89666== 	mul : yes
+==89666== 	div : yes
+==89666== 	mAdd : yes
+==89666== 	mSub : yes
+==89666== 	sqrt : yes
+==89666== 	cmp : no
+==89666== 	conv : yes
+==89666== 	max : no
+==89666== 	min : no
+==89666== Instrumented vectorized operations :
+==89666== 	scal : no
+==89666== 	llo  : yes
+==89666== 	vec2  : yes
+==89666== 	vec4  : yes
+==89666== 	vec8  : yes
+==89666== 	unk  : yes
+==89666== Instrumented type :
+==89666== 	flt : yes
+==89666== 	dbl : yes
+==89666== Backend verrou simulating NATIVE rounding mode
+==89666== EXCLUDE DETECTED: /usr/lib/x86_64-linux-gnu/libm.so.6
+==89666== EXCLUDE DETECTED: /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+==89666== Using exclusion rule: *	/usr/lib/x86_64-linux-gnu/libm.so.6
+==89666== Using exclusion rule: *	/usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+==89666== 
+==89666==  ---------------------------------------------------------------------
+==89666==  Operation                            Instruction count
+==89666==   `- Precision
+==89666==       `- Vectorization          Total             Instrumented
+==89666==  ---------------------------------------------------------------------
+==89666==  add                   154560                   154560          (100%)
+==89666==   `- dbl                   154560                   154560      (100%)
+==89666==       `- llo                   154560                   154560  (100%)
+==89666==  ---------------------------------------------------------------------
+==89666==  sub                     2480                     2480          (100%)
+==89666==   `- dbl                     2480                     2480      (100%)
+==89666==       `- llo                     2480                     2480  (100%)
+==89666==  ---------------------------------------------------------------------
+==89666==  mul                   148000                   148000          (100%)
+==89666==   `- dbl                   148000                   148000      (100%)
+==89666==       `- llo                   148000                   148000  (100%)
+==89666==  ---------------------------------------------------------------------
+==89666==  div                       20                       20          (100%)
+==89666==   `- dbl                       20                       20      (100%)
+==89666==       `- llo                       20                       20  (100%)
+==89666==  ---------------------------------------------------------------------
+==89666==  cmp                      231                        0          (  0%)
+==89666==   `- dbl                      231                        0      (  0%)
+==89666==       `- scal                     231                        0  (  0%)
+==89666==  ---------------------------------------------------------------------
+==89666== Dumping exclusions list to `/home/catC/de283294/projet_gradient/dd.line/ref/dd.sym.89666'... OK.
+==89666== Dumping list of included sources to `/home/catC/de283294/projet_gradient/dd.line/ref/dd.line.89666'... OK.
+==89666== For lists of detected and suppressed errors, rerun with: -s
+==89666== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

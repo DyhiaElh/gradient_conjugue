@@ -22,8 +22,8 @@ class Matrix {
         int Tag() const;
 
         // Affichage et lecture/écriture
-        void readFromFile(const char *filename);
-        void writeToFile(const char *filename) const;
+        void readFromFile(const std::string& filename);
+        void writeToFile(const std::string& filename) const;
 
         // Décomposition de matrices
         //template <typename S>

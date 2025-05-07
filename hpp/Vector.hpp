@@ -25,8 +25,8 @@ public:
     int Size() const;
 
     // Méthodes de lecture et écriture de fichier
-    void readFromFile(const char* filename);
-    void writeToFile(const char* filename) const;
+    void readFromFile(const std::string& filename);
+    void writeToFile(const std::string& filename) const;
 
     // Opérateurs arithmétiques
     Vector operator+(const Vector& other) const;

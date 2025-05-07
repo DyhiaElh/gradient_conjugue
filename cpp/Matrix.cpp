@@ -47,8 +47,8 @@ int Matrix<T>::Tag() const {
 }
 
 template <typename T>
-void Matrix<T>::readFromFile(const char* filename) {
-    FILE* file = fopen(filename, "r");
+void Matrix<T>::readFromFile(const std::string& filename) {
+    FILE* file = fopen(filename.c_str(), "r");
     if (!file) {
         throw runtime_error("Impossible d'ouvrir le fichier.");
     }
@@ -102,8 +102,8 @@ void Matrix<T>::readFromFile(const char* filename) {
 }
 
 template <typename T>
-void Matrix<T>::writeToFile(const char *filename) const {
-    FILE* file = fopen(filename, "w");
+void Matrix<T>::writeToFile(const std::string& filename) const {
+    FILE* file = fopen(filename.c_str(), "w");
     if (!file) {
         throw runtime_error("Impossible d'ouvrir le fichier.");
     }

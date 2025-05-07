@@ -37,8 +37,8 @@ int Vector<T>::Size() const {
 
 // File I/O
 template <typename T>
-void Vector<T>::readFromFile(const char* filename) {
-    FILE* file = fopen(filename, "r");
+void Vector<T>::readFromFile(const std::string& filename) {
+    FILE* file = fopen(filename.c_str(), "r");
     if (!file) {
         throw runtime_error("Impossible d'ouvrir le fichier.");
     }
@@ -86,8 +86,8 @@ void Vector<T>::readFromFile(const char* filename) {
 }
 
 template <typename T>
-void Vector<T>::writeToFile(const char* filename) const {
-    FILE* file = fopen(filename, "w");
+void Vector<T>::writeToFile(const std::string& filename) const {
+    FILE* file = fopen(filename.c_str(), "w");
     if (!file) {
         throw runtime_error("Impossible d'ouvrir le fichier.");
     }

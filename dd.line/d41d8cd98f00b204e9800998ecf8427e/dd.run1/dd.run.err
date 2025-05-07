@@ -1,0 +1,73 @@
+==74075== Verrou, Check floating-point rounding errors
+==74075== Copyright (C) 2014-2019, EDF (F. Fevotte & B. Lathuiliere). 2019-2023, EDF (B. Lathuiliere). 2020-2021, TriScale innov (F. Fevotte)
+==74075==  
+==74075== Using Valgrind-3.23.0.verrou-2.6.0 and LibVEX; rerun with -h for copyright info
+==74075== Command: /home/catC/de283294/projet_gradient/build/test_gradient
+==74075== 
+==74075== Handling new value --libm-noinst-rounding-mode=native for option --libm-noinst-rounding-mode=native
+==74075== Handling new value --source=/home/catC/de283294/projet_gradient/dd.line/d41d8cd98f00b204e9800998ecf8427e/dd.line.include for option --source
+==74075== Loading list of included sources from `/home/catC/de283294/projet_gradient/dd.line/d41d8cd98f00b204e9800998ecf8427e/dd.line.include'... OK.
+==74075== Handling new value --warn-unknown-source=/home/catC/de283294/projet_gradient/dd.line/d41d8cd98f00b204e9800998ecf8427e/dd.line.exclude for option --warn-unknown-source
+==74075== Loading list of included sources from `/home/catC/de283294/projet_gradient/dd.line/d41d8cd98f00b204e9800998ecf8427e/dd.line.exclude'... OK.
+==74075== First seed : 865925
+==74075== Backend verrou : 1.x-dev
+==74075== Backend mcaquad : 1.x-dev
+==74075== Backend checkcancellation : 1.x-dev
+==74075== Backend check_float_max : 1.x-dev
+==74075== Backend checkdenorm : 1.x-dev
+==74075== Instrumented operations :
+==74075== 	add : yes
+==74075== 	sub : yes
+==74075== 	mul : yes
+==74075== 	div : yes
+==74075== 	mAdd : yes
+==74075== 	mSub : yes
+==74075== 	sqrt : yes
+==74075== 	cmp : no
+==74075== 	conv : yes
+==74075== 	max : no
+==74075== 	min : no
+==74075== Instrumented vectorized operations :
+==74075== 	scal : no
+==74075== 	llo  : yes
+==74075== 	vec2  : yes
+==74075== 	vec4  : yes
+==74075== 	vec8  : yes
+==74075== 	unk  : yes
+==74075== Instrumented type :
+==74075== 	flt : yes
+==74075== 	dbl : yes
+==74075== Frontend: double -> float
+==74075== Backend verrou simulating NEAREST rounding mode
+==74075== EXCLUDE DETECTED: /usr/lib/x86_64-linux-gnu/libm.so.6
+==74075== EXCLUDE DETECTED: /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+==74075== Using exclusion rule: *	/usr/lib/x86_64-linux-gnu/libm.so.6
+==74075== Using exclusion rule: *	/usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+==74075== 
+==74075==  ---------------------------------------------------------------------
+==74075==  Operation                            Instruction count
+==74075==   `- Precision
+==74075==       `- Vectorization          Total             Instrumented
+==74075==  ---------------------------------------------------------------------
+==74075==  add                   154560                        0          (  0%)
+==74075==   `- dbl                   154560                        0      (  0%)
+==74075==       `- llo                   154560                        0  (  0%)
+==74075==  ---------------------------------------------------------------------
+==74075==  sub                     2480                        0          (  0%)
+==74075==   `- dbl                     2480                        0      (  0%)
+==74075==       `- llo                     2480                        0  (  0%)
+==74075==  ---------------------------------------------------------------------
+==74075==  mul                   148000                        0          (  0%)
+==74075==   `- dbl                   148000                        0      (  0%)
+==74075==       `- llo                   148000                        0  (  0%)
+==74075==  ---------------------------------------------------------------------
+==74075==  div                       20                        0          (  0%)
+==74075==   `- dbl                       20                        0      (  0%)
+==74075==       `- llo                       20                        0  (  0%)
+==74075==  ---------------------------------------------------------------------
+==74075==  cmp                      231                        0          (  0%)
+==74075==   `- dbl                      231                        0      (  0%)
+==74075==       `- scal                     231                        0  (  0%)
+==74075==  ---------------------------------------------------------------------
+==74075== For lists of detected and suppressed errors, rerun with: -s
+==74075== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

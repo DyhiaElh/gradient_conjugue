@@ -3,18 +3,30 @@
 #include "../hpp/Solvers.hpp"
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
+
 using namespace std;
 
 int main() {
+   
 	cout << "double" <<endl;
 	Matrix<double> H(1, 80);
     Vector<double> i(1, 80);
     Vector<double> x_ex_d(1, 80);
-    H.readFromFile("matrice.txt");
-    i.readFromFile("b.txt");
-    x_ex_d.readFromFile("x.txt");
-    Vector<double> x15(1, H.Size());
+    char * ze_dir0 = getenv("GRADIENT_DIR");
+    if(ze_dir0 == nullptr)
+       {
+        cerr << "You forgot to define env variable GRADIENT_DIR!!" << endl;
+        exit(-1);
+       }
+       
+    const std::string ze_dir = std::string(ze_dir0) + "/";
     
+    H.readFromFile(ze_dir + "matrice.txt");
+    i.readFromFile(ze_dir + "b.txt");
+    x_ex_d.readFromFile(ze_dir +"x.txt");
+    Vector<double> x15(1, H.Size());
+  
     
     //x15=H.productVector(x_ex_d);
    
@@ -24,7 +36,7 @@ int main() {
     //cout << "Matrix H: " << H << endl;
     //cout << "Vector i: " << i << endl;
     
-    Solve(H, i, x15, x_ex_d,  "ConjugateGradient", 1e-15, 10, "erreurs_double.csv");
+    Solve(H, i, x15, x_ex_d,  "ConjugateGradient", 1e-15, 10, ze_dir + "erreurs_double.csv");
     
     cout << "Solution CG: " << setprecision(15) <<x15 << endl;
     //x15.writeToFile("../datagradient/b.txt");

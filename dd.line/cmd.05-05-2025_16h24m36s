@@ -1,0 +1,28 @@
+ENV /home/catC/de283294/verrou-install-2.6.0/bin/verrou_dd_line:
+	PWD=/home/catC/de283294/projet_gradient
+ENV VERROU:
+	VERROU_DIR=/home/catC/de283294/verrou-install-2.6.0
+Cmd: /home/catC/de283294/verrou-install-2.6.0/bin/verrou_dd_line --nruns=5 tools/ddRun.sh tools/ddCmp.sh
+TimeStamp: 05-05-2025_16h24m36s
+
+arg: /home/catC/de283294/projet_gradient/tools/ddRun.sh (md5=51f7f277ec5520cbcc0996555ceb7bda)
+--begin content--
+#!/bin/bash
+
+OUTDIR="$1"
+PROG=/home/catC/de283294/projet_gradient/cpp/test_gradient
+
+# valgrind --tool=verrou --rounding-mode=random --float=yes $PROG > $OUTDIR/res.dat
+valgrind --tool=verrou --float=yes $PROG > $OUTDIR/res.dat
+
+--end content--
+arg: /home/catC/de283294/projet_gradient/tools/ddCmp.sh (md5=28603cfcdfddc2d0b6c032075f6e8f1d)
+--begin content--
+#!/bin/bash
+
+REF="$1"
+RUN="$2"
+
+diff ${REF}/res.dat ${RUN}/res.dat
+
+--end content--
